@@ -9,7 +9,7 @@ const category = categories.map((category)=>{
             <div className="card border-secondary mb-3">
                 <div className="card-header">{category}</div>
                 <div className="card-body">
-                    <img src={`http://localhost:1337${featureimage.formats.thumbnail.url}`} />
+                    <img src={`https://strapireactbackend.herokuapp.com${featureimage.formats.thumbnail.url}`} />
                     <h4 className="card-title">{blogtitle}</h4>
                     <h5>{blogcontent}</h5>
                 </div>

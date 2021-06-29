@@ -1,6 +1,7 @@
 import React from 'react';
 import fetch from 'isomorphic-fetch'; 
 import BlogListItem from './bloglistitem';
+import axios from 'axios';
 class BlogList extends React.Component
 {
         constructor(){
@@ -11,13 +12,10 @@ class BlogList extends React.Component
         } 
     componentWillMount()
     {
-        fetch('http://localhost:1337/blogs').then((response)=>{
-            if(response.status >=400){
-                throw new Error("Bad Response from Server");
-            }
-            return response.json();
-        }).then((blogs)=>{
-            this.setState({blogs: blogs});
+        axios.get('https://strapireactbackend.herokuapp.com/blogs').then((response)=>{
+
+        this.setState({blogs: response.data});
+            
         });
     }
     render(){
